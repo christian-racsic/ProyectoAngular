@@ -15,6 +15,7 @@
           "options": {
 
             "outputPath": "dist/myrecipes",
+            "baseHref": "/ProyectoAngular/",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [

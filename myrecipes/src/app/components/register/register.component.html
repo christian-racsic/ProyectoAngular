@@ -1,0 +1,38 @@
+<div class="container">
+  <h1>Registro</h1>
+  <form [formGroup]="registerForm" (ngSubmit)="sendRegister()">
+    <div class="mb-3">
+      <label for="exampleInputEmail1" class="form-label">Email address</label>
+      <input
+        type="email"
+        name="email"
+        formControlName="email"
+        class="form-control"
+        id="exampleInputEmail1"
+        aria-describedby="emailHelp"
+        [class.is-invalid]="emailNotValid"
+        [class.is-valid]="emailValid"
+      />
+      <div *if="emailNotValid" class="alert alert-danger">Email requerido en arroba</div>
+      <div id="emailHelp" class="form-text">
+        We'll never share your email with anyone else.
+      </div>
+    </div>
+    <div class="mb-3" formGroupName="passwords" [class.bg-warning]="crossPasswordsNotValid" [class.bg-success]="!crossPasswordsNotValid">
+      <label for="exampleInputPassword1" class="form-label">Password</label>
+      <input type="password" class="form-control" id="exampleInputPassword1" name="password" formControlName="password" [class.is-invalid]="password1NotValid" [class.is-valid]="passwordValid" />
+      <div *if="password1NotValid" class="alert alert-danger">Contraseña es requerida y debe tener al menos 8 caracteres</div>
+      <label for="exampleInputPassword2" class="form-label">Repite la contraseña</label>
+      <input type="password" class="form-control" id="exampleInputPassword2" name="password2" formControlName="password2" [class.is-invalid]="password2NotValid" [class.is-valid]="passwordValid" />
+      <div *if="password2NotValid" class="alert alert-danger">Contraseña es requerida y debe coincidir</div>
+      <div *if="crossPasswordsNotValid" class="alert alert-danger">Contraseñas no coinciden</div>
+    </div>
+    <div class="mb-3 form-check">
+      <input type="checkbox" class="form-check-input" id="exampleCheck1" />
+      <label class="form-check-label" for="exampleCheck1">Check me out</label>
+    </div>
+    <button type="submit" class="btn btn-primary">Registro</button>
+    <div class="alert alert-danger">{{ error }}</div>
+  </form>
+</div>
+

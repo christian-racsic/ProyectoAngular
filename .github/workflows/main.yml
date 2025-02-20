@@ -1,8 +1,9 @@
-name: Deploy
+name: Deploy Angular App
+
 on:
   push:
     branches:
-      - main
+      - main  # Se ejecuta cuando hay cambios en `main`
 
 jobs:
   build-deploy:

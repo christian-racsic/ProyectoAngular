@@ -7,7 +7,7 @@ on:
 jobs:
   build-deploy:
     runs-on: ubuntu-latest
-    
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
@@ -17,14 +17,19 @@ jobs:
         with:
           node-version: 18
 
+      - name: Move to project directory
+        run: cd myrecipes
       - name: Install dependencies
         run: npm install
+        working-directory: myrecipes
 
       - name: Build Angular App
-        run: npm run build -- --configuration=production --project=myrecipes
+        run: npm run build -- --configuration production
+        working-directory: myrecipes
 
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
         with:
           branch: gh-pages
-          folder: dist/myrecipes/browser
+          folder: myrecipes/dist/myrecipes
+

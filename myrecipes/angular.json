@@ -15,7 +15,7 @@
           "options": {
 
             "outputPath": "dist/myrecipes",
-            "baseHref": "/ProyectoAngularbrowser/",
+            "baseHref": "/ProyectoAngular/browser/",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [

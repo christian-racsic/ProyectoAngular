@@ -1,5 +1,4 @@
 name: Deploy
-
 on:
   push:
     branches:
@@ -19,13 +18,18 @@ jobs:
           node-version: 18
 
       - name: Install dependencies
-        run: npm install
+        run: |
+          cd myrecipes  # Ir a la carpeta correcta donde está package.json
+          npm install
 
       - name: Build Angular App
-        run: npm run build -- --configuration production
+        run: |
+          cd myrecipes  # Moverse a la carpeta correcta
+          npm run build --configuration production --base-href="/ProyectoAngular/"  # Asegurar que el base-href es correcto
 
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
         with:
           branch: gh-pages
-          folder: dist/myrecipes/browser
+          folder: myrecipes/dist/myrecipes/browser
+

@@ -6,7 +6,7 @@ import { IRecipe } from '../i-recipe';
 import { RecipeCardComponent } from '../recipe-card/recipe-card.component';
 import { SupabaseService } from '../../services/supabase.service';
 import { map, Subscription } from 'rxjs';
-import { SearchServiceService } from '../../services/search-service.service';
+import { SearchService } from '../../services/search-service.service';
 import { FilterPipe } from "../../pipes/filter.pipe";
 
 @Component({
@@ -18,7 +18,7 @@ import { FilterPipe } from "../../pipes/filter.pipe";
 export class RecipesListComponent implements OnInit, OnDestroy {
 
   constructor(private supabaseService: SupabaseService,
-    private searchService: SearchServiceService
+    private searchService: SearchService
   ){}
 
   public recipes: IRecipe[] = [];

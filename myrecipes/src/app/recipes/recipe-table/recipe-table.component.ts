@@ -4,7 +4,7 @@ import {recipes, RecipesType} from "../recipes-list/recipes_exemples"
 import { RecipeTableRowComponent } from "../recipe-table-row/recipe-table-row.component";
 import { SupabasewebsocketService } from '../../services/supabasewebsocket.service';
 import { FilterPipe } from "../../pipes/filter.pipe";
-import { SearchServiceService } from '../../services/search-service.service';
+import { SearchService } from '../../services/search-service.service';
 import { Subscription } from 'rxjs';
 
 @Component({
@@ -17,7 +17,7 @@ export class RecipeTableComponent  implements OnInit{
   public recipes: IRecipe[] = recipes;
   public searchValue: string = '';
   private searchSubscription?: Subscription;
-  constructor(private searchService: SearchServiceService){}
+  constructor(private searchService: SearchService){}
 
   ngOnInit(): void {
     this.searchSubscription = this.searchService.searchSubject.

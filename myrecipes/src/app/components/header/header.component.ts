@@ -3,9 +3,10 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
 import { SupabaseService } from '../../services/supabase.service';
 import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import { SearchService } from '../../services/search-service.service'; // ✅ Importación correcta
 import { debounceTime } from 'rxjs';
 import { User } from '@supabase/supabase-js';
+import { SearchService } from '../../services/search-service.service';
+
 
 @Component({
   selector: 'app-header',
@@ -17,7 +18,7 @@ export class HeaderComponent implements OnInit {
   logged: boolean = false;
   searchForm: FormGroup;
   user: User | null = null;
-  searchResults: any[] = []; // Para almacenar los resultados de la búsqueda
+  searchResults: any[] = []; 
 
   constructor(
     private supaService: SupabaseService,
@@ -44,7 +45,7 @@ export class HeaderComponent implements OnInit {
     this.supaService.isLogged();
 
     this.searchForm.get('searchInput')?.valueChanges.pipe(
-      debounceTime(500) // Reduce la cantidad de peticiones
+      debounceTime(500)
     ).subscribe(query => {
       this.searchRecipes(query);
     });

@@ -14,8 +14,8 @@
           "builder": "@angular-devkit/build-angular:application",
           "options": {
 
-            "outputPath": "dist/myrecipes/browser",
-            "baseHref": "/ProyectoAngular/",
+            "outputPath": "dist/myrecipes",
+            "baseHref": "/ProyectoAngularbrowser/",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [

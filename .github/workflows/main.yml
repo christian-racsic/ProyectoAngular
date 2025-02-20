@@ -17,8 +17,6 @@ jobs:
         with:
           node-version: 18
 
-      - name: Move to project directory
-        run: cd myrecipes
       - name: Install dependencies
         run: npm install
         working-directory: myrecipes
@@ -30,6 +28,6 @@ jobs:
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
         with:
+          token: ${{ secrets.GH_PAT }}
           branch: gh-pages
           folder: myrecipes/dist/myrecipes
-
